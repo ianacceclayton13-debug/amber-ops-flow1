@@ -1,0 +1,114 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-amber: var(--amber);
+  --color-amber-foreground: var(--amber-foreground);
+  --color-caution: var(--caution);
+  --color-warning: var(--warning);
+  --color-note: var(--note);
+  --color-tip: var(--tip);
+  --color-success: var(--success);
+  --color-panel: var(--panel);
+  --color-rail: var(--rail);
+  --font-display: "Oswald", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 0.25rem;
+  /* Industrial dark */
+  --background: oklch(0.18 0.012 250);
+  --foreground: oklch(0.94 0.005 95);
+  --panel: oklch(0.22 0.013 250);
+  --rail: oklch(0.15 0.01 250);
+  --card: oklch(0.235 0.013 250);
+  --card-foreground: oklch(0.94 0.005 95);
+  --popover: oklch(0.22 0.013 250);
+  --popover-foreground: oklch(0.94 0.005 95);
+  --primary: oklch(0.78 0.17 78); /* hi-vis amber */
+  --primary-foreground: oklch(0.18 0.012 250);
+  --amber: oklch(0.78 0.17 78);
+  --amber-foreground: oklch(0.18 0.012 250);
+  --secondary: oklch(0.28 0.014 250);
+  --secondary-foreground: oklch(0.94 0.005 95);
+  --muted: oklch(0.26 0.012 250);
+  --muted-foreground: oklch(0.66 0.012 250);
+  --accent: oklch(0.32 0.014 250);
+  --accent-foreground: oklch(0.94 0.005 95);
+  --destructive: oklch(0.62 0.22 27);
+  --destructive-foreground: oklch(0.98 0.005 95);
+  --border: oklch(0.32 0.014 250);
+  --input: oklch(0.3 0.014 250);
+  --ring: oklch(0.78 0.17 78);
+
+  /* Callout colors */
+  --caution: oklch(0.78 0.17 78);    /* amber */
+  --warning: oklch(0.65 0.23 27);    /* red */
+  --note: oklch(0.7 0.13 230);       /* blue */
+  --tip: oklch(0.75 0.18 145);       /* green */
+  --success: oklch(0.72 0.18 145);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Inter", system-ui, sans-serif;
+    background-image:
+      linear-gradient(var(--color-border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer utilities {
+  .hi-vis-stripes {
+    background: repeating-linear-gradient(
+      45deg,
+      var(--color-amber) 0 14px,
+      oklch(0.18 0.012 250) 14px 28px
+    );
+  }
+  .text-stencil {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+}
